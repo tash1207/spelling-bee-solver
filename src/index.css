@@ -15,3 +15,50 @@ code {
 h1 {
   text-align: center;
 }
+
+.buttonContainer {
+  text-align: center;
+}
+
+.button {
+  background-color: #39d;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 8px;
+  padding: 20px;
+}
+
+.button:active {
+  transform: scale(1.1);
+}
+
+.cell {
+  align-items: center;
+  background: #e6e6e6;
+  display: inline-flex;
+  font-size: 2em;
+  font-weight: bold;
+  justify-content: center;
+  margin: 8px;
+  height: 80px;
+  width: 80px;
+  padding: 4px;
+  text-transform: uppercase;
+}
+
+.cell.required {
+  background: #f7da21;
+}
+
+.cellContainer {
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 0 auto;
+  width: 800px;
+}
