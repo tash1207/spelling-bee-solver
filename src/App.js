@@ -1,13 +1,23 @@
+import { useRef, useState } from 'react'
 import Button from './components/Button'
 import Cell from './components/Cell'
+import List from './components/List'
 import wordList from './wordList.json'
 
 function App() {
+  const [solutionsList, _setSolutionsList] = useState([]);
+
+  const solutionsListRef = useRef(solutionsList);
+  const setSolutionsList = (data) => {
+    solutionsListRef.current = data;
+    _setSolutionsList(data);
+  }
+
   const solve = () => {
     // Store the required letter and the 6 other letters
     const requiredLetter = 'a';
     const allLetters = ['a', 'b', 'r', 'i', 'o', 't', 'v'];
-    const solutionsList = [];
+    const validSolutions = [];
     for (const validWord of wordList) {
       // Check that word is at least 4 characters
       if (validWord.length < 4) {
@@ -27,11 +37,10 @@ function App() {
         }
       }
       if (requiredLetterUsed && onlyUsesValidLetters) {
-        solutionsList.push(validWord);
+        validSolutions.push(validWord);
       }
     }
-    console.log('Solutions List');
-    console.log(solutionsList);
+    setSolutionsList(validSolutions);
   }
 
   return (
@@ -49,6 +58,7 @@ function App() {
         <Cell letter={'v'} />
       </div>
       <Button text='Solve' onClick={solve} />
+      <List answers={solutionsList} />
     </>
   );
 }
