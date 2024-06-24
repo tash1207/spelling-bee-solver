@@ -51,16 +51,26 @@ h1 {
   text-transform: uppercase;
 }
 
-.cell.required {
-  background: #f7da21;
-}
-
 .cellContainer {
   display: grid;
   grid-gap: 8px;
   grid-template-columns: repeat(7, 1fr);
   margin: 0 auto;
   width: 800px;
+}
+
+input {
+  background: #e6e6e6;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 80px;
+}
+
+input.required {
+  background: #f7da21;
 }
 
 .list {

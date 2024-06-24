@@ -1,6 +1,8 @@
-const Cell = ({ required, letter }) => {
+const Cell = ({ inputEl }) => {
   return (
-      <div className={`cell ${required ? 'required' : ''}`}>{letter}</div>
+      <div className="cell">
+        {inputEl}
+      </div>
     )
 }
 
