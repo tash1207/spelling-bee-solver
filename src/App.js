@@ -30,8 +30,15 @@ function App() {
 
   const solve = () => {
     // Store the required letter and the 6 other letters
-    const allLetters =
-      [requiredLetter, letter1, letter2, letter3, letter4, letter5, letter6];
+    const allLetters = [
+      requiredLetter.toLowerCase(),
+      letter1.toLowerCase(),
+      letter2.toLowerCase(),
+      letter3.toLowerCase(),
+      letter4.toLowerCase(),
+      letter5.toLowerCase(),
+      letter6.toLowerCase()
+    ];
     for (const input of allLetters) {
       if (input.length !== 1) {
         const errorMessage = ["Please input 7 letters"];
@@ -49,11 +56,11 @@ function App() {
       let onlyUsesValidLetters = true;
       for (const character of validWord) {
         // Check that word contains required letter
-        if (character === requiredLetter) {
+        if (character.toLowerCase() === requiredLetter.toLowerCase()) {
           requiredLetterUsed = true;
         }
         // Check that word only contains given letters
-        if (!allLetters.includes(character)) {
+        if (!allLetters.includes(character.toLowerCase())) {
           onlyUsesValidLetters = false;
           break;
         }
