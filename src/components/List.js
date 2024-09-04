@@ -1,10 +1,12 @@
-const List = ({ answers }) => {
+const List = ({ solutions }) => {
   return (
     <div className='listContainer'>
       <div className='list'>
         Solutions:
-        {answers.map((answer, index) => (
-          <div key={index}>{answer}</div>
+        {solutions.map((solution, index) => (
+          <div className={`${solution.pangram ? 'pangram' : ''}`} key={index}>
+            {solution.word}
+          </div>
         ))}
       </div>
     </div>

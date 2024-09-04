@@ -79,3 +79,7 @@ input.required {
   max-width: 500px;
   padding: 16px;
 }
+
+.pangram {
+  color: #f7da21;
+}

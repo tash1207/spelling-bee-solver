@@ -28,6 +28,13 @@ function App() {
   const [letter5, input5] = useInput();
   const [letter6, input6] = useInput();
 
+  const Solution = (word, pangram) => {
+    return {
+      word : word || '',
+      pangram : pangram || false,
+    }
+  }
+
   const solve = () => {
     // Store the required letter and the 6 other letters
     const allLetters = [
@@ -66,8 +73,18 @@ function App() {
         }
       }
       if (requiredLetterUsed && onlyUsesValidLetters) {
-        validSolutions.push(validWord);
+        // I'm sure there's an optimization but I'm just going to check for
+        // the presence of each character individually to determine pangram.
+        let pangram = validWord.includes(requiredLetter) && 
+        validWord.includes(letter1) &&
+        validWord.includes(letter2) &&
+        validWord.includes(letter3) &&
+        validWord.includes(letter4) &&
+        validWord.includes(letter5) &&
+        validWord.includes(letter6);
+        validSolutions.push(Solution(validWord, pangram));
       }
+
     }
     setSolutionsList(validSolutions);
   }
@@ -87,7 +104,7 @@ function App() {
         <Cell inputEl={input6} />
       </div>
       <Button text='Solve' onClick={solve} />
-      <List answers={solutionsList} />
+      <List solutions={solutionsList} />
     </>
   );
 }
